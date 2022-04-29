@@ -1,0 +1,13 @@
+.App {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1rem;
+}
+
+.App nav {
+  grid-column: 1/-1;
+}
+
+.App > * {
+  border: 1px solid darkviolet;
+}
