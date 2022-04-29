@@ -4,8 +4,20 @@ export default function CheckoutForm() {
   const formEl = useRef(null);
   function submitted(e) {
     e.preventDefault();
-    console.log(formEl.current.elements.fullname.value);
-    console.log(formEl.current.elements.address.value);
+    //console.log(formEl.current.elements.fullname.value);
+    //console.log(formEl.current.elements.address.value);
+    fetch("databaseendpoint/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        fullname: formEl.current.elements.fullname.value,
+        address: formEl.current.elements.address.value,
+      })
+        .then((res) => res.json())
+        .then((data) => {}),
+    });
   }
 
   return (

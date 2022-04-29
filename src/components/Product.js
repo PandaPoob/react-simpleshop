@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 export default function Product(props) {
+  const [showMore, setShowMore] = useState(false);
+
   function add() {
     if (props.basket.find((item) => item.id === props.product.id)) {
       props.setBasket((old) =>
@@ -27,6 +31,10 @@ export default function Product(props) {
       />
       <p>{props.product.price}</p>
       <button onClick={add}>Add to basket</button>
+      <button onClick={() => setShowMore((old) => !old)}>Read more</button>
+      <div style={{ display: showMore ? "block" : "none" }}>
+        <p>extra info hihihihi</p>
+      </div>
     </article>
   );
 }
