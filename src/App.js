@@ -26,7 +26,11 @@ function App() {
   return (
     <div className={styles.App}>
       <Nav></Nav>
-      <ProductList products={products} setBasket={setBasket}></ProductList>
+      <ProductList
+        products={products}
+        basket={basket}
+        setBasket={setBasket}
+      ></ProductList>
       <BasketContainer setBasket={setBasket} basket={basket}></BasketContainer>
     </div>
   );

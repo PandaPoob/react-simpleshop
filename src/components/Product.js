@@ -1,6 +1,22 @@
 export default function Product(props) {
   function add() {
-    props.setBasket((oldState) => [...oldState, props.product]);
+    if (props.basket.find((item) => item.id === props.product.id)) {
+      props.setBasket((old) =>
+        old.map((item) => {
+          if (item.id === props.product.id) {
+            const copy = { ...item };
+            copy.amount++;
+            return copy;
+          }
+          return item;
+        })
+      );
+    } else {
+      props.setBasket((oldState) => [
+        ...oldState,
+        { ...props.product, amount: 1 },
+      ]);
+    }
   }
   return (
     <article>

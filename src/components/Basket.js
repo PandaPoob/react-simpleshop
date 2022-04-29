@@ -1,7 +1,8 @@
 export default function basket(props) {
   const initialValue = 0;
   const sumWithInitial = props.basket.reduce(
-    (previousValue, currentValue) => previousValue + currentValue.price,
+    (previousValue, currentValue) =>
+      previousValue + currentValue.amount * currentValue.price,
     initialValue
   );
 
@@ -14,7 +15,7 @@ export default function basket(props) {
       <ul>
         {props.basket.map((item) => {
           return (
-            <li>
+            <li key={item.id}>
               <button onClick={() => remove(item.id)}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
