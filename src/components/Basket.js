@@ -31,12 +31,12 @@ export default function basket(props) {
                   />
                 </svg>
               </button>
-              {item.productdisplayname} ${item.price} x{item.amount}
+              {item.productdisplayname} {item.price},- x{item.amount}
             </li>
           );
         })}
       </ul>
-      <p>Total: ${sumWithInitial}</p>
+      <h3>Total: {sumWithInitial}kr.</h3>
     </div>
   );
 }

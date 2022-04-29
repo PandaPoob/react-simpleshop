@@ -21,7 +21,7 @@ export default function CheckoutForm() {
   }
 
   return (
-    <div>
+    <div className="Form">
       <form ref={formEl} onSubmit={submitted}>
         <label htmlFor="fullname">Full name</label>
         <input required type="text" name="fullname" id="fullname"></input>

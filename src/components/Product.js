@@ -23,15 +23,24 @@ export default function Product(props) {
     }
   }
   return (
-    <article>
-      <h2>{props.product.productdisplayname}</h2>
+    <article className="Product">
       <img
         src={`https://kea-alt-del.dk/t7/images/webp/640/${props.product.id}.webp`}
         alt="product img"
       />
-      <p>{props.product.price}</p>
-      <button onClick={add}>Add to basket</button>
-      <button onClick={() => setShowMore((old) => !old)}>Read more</button>
+      <h2>{props.product.productdisplayname}</h2>
+      <p>{props.product.price} kr.</p>
+      <div className="button-wrapper">
+        <button className="article-button" onClick={add}>
+          Add to basket
+        </button>
+        <button
+          className="article-button"
+          onClick={() => setShowMore((old) => !old)}
+        >
+          Read more
+        </button>{" "}
+      </div>
       <div style={{ display: showMore ? "block" : "none" }}>
         <p>extra info hihihihi</p>
       </div>

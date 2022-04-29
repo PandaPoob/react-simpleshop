@@ -17,11 +17,90 @@ code {
 }
 
 img {
-  max-width: 100%;
+  width: 20rem;
 }
 
 .ProductList {
+  overflow: hidden;
+  margin-top: 2rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  justify-content: center;
+  gap: 4rem;
+  margin-left: 1rem;
+}
+
+.ProductList h2 {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+}
+
+.Product {
+  margin-inline: auto;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  background-color: lavender;
+  padding: 1rem;
+  width: 400px;
+}
+
+.Product p {
+  align-self: baseline;
+  margin-left: 2rem;
+  margin-top: 0.5rem;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
+}
+
+.article-button {
+  background-color: white;
+  border: 1px solid lightblue;
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  margin-bottom: 1rem;
+  min-width: 8rem;
+  cursor: pointer;
+}
+
+.article-button:hover {
+  background-color: lightblue;
+}
+
+.Basket-container {
+  position: sticky;
+  top: 6.4rem;
+  align-self: start;
+  padding: 1rem;
+}
+
+.Form form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  border: 1px dashed darkviolet;
+  padding: 0.4rem;
+}
+
+.Form input {
+  margin-bottom: 0.5rem;
+}
+
+.Form button {
+  background-color: lightblue;
+  border: 1px solid darkviolet;
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  min-width: 8rem;
+  cursor: pointer;
+  margin: auto;
+}
+
+.Form button:hover {
+  background-color: darkviolet;
 }
