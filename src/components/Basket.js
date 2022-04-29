@@ -31,7 +31,7 @@ export default function basket(props) {
                   />
                 </svg>
               </button>
-              {item.productdisplayname} ${item.price}
+              {item.productdisplayname} ${item.price} x{item.amount}
             </li>
           );
         })}
