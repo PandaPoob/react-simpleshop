@@ -7,7 +7,18 @@ export default function basket(props) {
   );
 
   function remove(id) {
-    props.setBasket((old) => old.filter((item) => item.id !== id));
+    //props.setBasket((old) => old.filter((item) => item.id !== id));
+    props.setBasket(old=>{
+      const mapped= old.map(item=>{
+        if(item.id===id){
+          const copy = {...item}
+          copy.amount = copy.amount-1
+          return copy
+        }
+        return item
+      })
+      return mapped.filter(item=>item.amount>0)
+    })
   }
 
   return (
