@@ -1,7 +1,8 @@
-import { useState } from "react";
+//import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Product(props) {
-  const [showMore, setShowMore] = useState(false);
+  //const [showMore, setShowMore] = useState(false);
 
   function add() {
     if (props.basket.find((item) => item.id === props.product.id)) {
@@ -34,16 +35,17 @@ export default function Product(props) {
         <button className="article-button" onClick={add}>
           Add to basket
         </button>
-        <button
+        <Link to={`/products/${props.product.id}`}>Read More</Link>
+        {/*  <button
           className="article-button"
           onClick={() => setShowMore((old) => !old)}
         >
           Read more
-        </button>{" "}
+        </button>{" "} */}
       </div>
-      <div style={{ display: showMore ? "block" : "none" }}>
+      {/*  <div style={{ display: showMore ? "block" : "none" }}>
         <p>extra info hihihihi</p>
-      </div>
+      </div> */}
     </article>
   );
 }
