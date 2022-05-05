@@ -13,14 +13,16 @@ export default function App() {
           <Link to="/">Home</Link> | <Link to="/products">Products</Link>
         </nav>
       </header>
-      <BasketProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="products" element={<Products />} />
-          <Route path="products/:id" element={<SingleProduct />} />
-        </Routes>
-        <BasketContainer></BasketContainer>
-      </BasketProvider>
+      <div id="product_app">
+        <BasketProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="products" element={<Products />} />
+            <Route path="products/:id" element={<SingleProduct />} />
+          </Routes>
+          <BasketContainer></BasketContainer>
+        </BasketProvider>
+      </div>
     </div>
   );
 }
