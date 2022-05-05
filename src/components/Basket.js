@@ -1,6 +1,10 @@
-export default function basket(props) {
+import { useContext } from "react";
+import { BasketContext } from "../contexts/basketContext";
+
+export default function Basket(props) {
+  const { basket, setBasket } = useContext(BasketContext);
   const initialValue = 0;
-  const sumWithInitial = props.basket.reduce(
+  const sumWithInitial = basket.reduce(
     (previousValue, currentValue) =>
       previousValue + currentValue.amount * currentValue.price,
     initialValue
@@ -8,23 +12,23 @@ export default function basket(props) {
 
   function remove(id) {
     //props.setBasket((old) => old.filter((item) => item.id !== id));
-    props.setBasket(old=>{
-      const mapped= old.map(item=>{
-        if(item.id===id){
-          const copy = {...item}
-          copy.amount = copy.amount-1
-          return copy
+    setBasket((old) => {
+      const mapped = old.map((item) => {
+        if (item.id === id) {
+          const copy = { ...item };
+          copy.amount = copy.amount - 1;
+          return copy;
         }
-        return item
-      })
-      return mapped.filter(item=>item.amount>0)
-    })
+        return item;
+      });
+      return mapped.filter((item) => item.amount > 0);
+    });
   }
 
   return (
     <div>
       <ul>
-        {props.basket.map((item) => {
+        {basket.map((item) => {
           return (
             <li key={item.id}>
               <button onClick={() => remove(item.id)}>

@@ -1,10 +1,10 @@
 import Product from "./Product";
 
-export default function ProductList({ products, basket, setBasket }) {
+export default function ProductList({ products }) {
   return (
     <section className="ProductList">
       {products.map((p) => (
-        <Product key={p.id} setBasket={setBasket} basket={basket} product={p} />
+        <Product key={p.id} product={p} />
       ))}
     </section>
   );

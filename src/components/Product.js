@@ -1,12 +1,15 @@
+import { useContext } from "react";
+import { BasketContext } from "../contexts/basketContext";
 //import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Product(props) {
   //const [showMore, setShowMore] = useState(false);
+  const { basket, setBasket } = useContext(BasketContext);
 
   function add() {
-    if (props.basket.find((item) => item.id === props.product.id)) {
-      props.setBasket((old) =>
+    if (basket.find((item) => item.id === props.product.id)) {
+      setBasket((old) =>
         old.map((item) => {
           if (item.id === props.product.id) {
             const copy = { ...item };
@@ -17,10 +20,7 @@ export default function Product(props) {
         })
       );
     } else {
-      props.setBasket((oldState) => [
-        ...oldState,
-        { ...props.product, amount: 1 },
-      ]);
+      setBasket((oldState) => [...oldState, { ...props.product, amount: 1 }]);
     }
   }
   return (
