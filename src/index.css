@@ -113,3 +113,8 @@ img {
 .Form button:hover {
   background-color: darkviolet;
 }
+
+.removing {
+  transition: all 3s;
+  transform: translateX(500px);
+}
